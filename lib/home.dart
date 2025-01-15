@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zoda_test/app_colors.dart';
-import 'package:zoda_test/my_cart.dart';
+import 'package:zoda_test/product_detail.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -28,7 +28,9 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+      ),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -228,7 +230,7 @@ class _HomepageState extends State<Homepage> {
             ),
             InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const MyCart()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProductDetail()));
               },
               child: SizedBox(
                 height: 155,

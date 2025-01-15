@@ -7,3 +7,4 @@ const Color ebbWhite = Color(0XFFF1EEEE) ;
 const Color codGray = Color(0XFF1E1E1E) ;
 const Color persimmonOrange = Color(0XFFFA6D4E) ;
 const Color mineShaftGray = Color(0XFF313131) ;
+const Color lightningYellow = Color(0XFFFBBE21) ;
