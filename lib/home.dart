@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:zoda_test/app_colors.dart';
 import 'package:zoda_test/product_detail.dart';
 
@@ -25,32 +27,83 @@ class _HomepageState extends State<Homepage> {
     'Accessories'
   ];
 
+  List<String> bottomNavItems = [
+    'assets/home.svg',
+    'assets/menu.svg',
+    'assets/Bookmark.svg',
+    'assets/Shopping_Cart.svg',
+    'assets/User.svg'
+  ];
+  int selctedNavIndex = 0;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-      ),
       backgroundColor: Colors.white,
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(24),
+          margin: const EdgeInsets.symmetric(horizontal: 24),
+          decoration: const BoxDecoration(
+            color: codGray,
+            borderRadius: BorderRadius.all(Radius.circular(14)),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: List.generate(bottomNavItems.length,
+                  (index) {
+                final icon = bottomNavItems[index];
+                return GestureDetector(
+                  onTap: () {
+
+                    setState(() {
+                      selctedNavIndex = index;
+                    });
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        height: 24,
+                        width: 24,
+                        child: Opacity(
+                          opacity: selctedNavIndex == index ? 1 : 0.5,
+                          child: SvgPicture.asset(
+                            icon,
+                            colorFilter: ColorFilter.mode(selctedNavIndex == index ? Colors.white : silverChalice, BlendMode.srcIn),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 4,),
+                      AnimatedBar(isActive: selctedNavIndex == index),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: ListView(
           children: [
             Row(
               children: [
-                const Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Discover',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                      style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
-                    Text(
+                     Text(
                       'Find anything that you want',
-                      style: TextStyle(color: gray, fontWeight: FontWeight.w500, fontSize: 12),
+                      style: GoogleFonts.poppins(color: gray, fontWeight: FontWeight.w500, fontSize: 12),
                     )
                   ],
                 ),
@@ -81,7 +134,7 @@ class _HomepageState extends State<Homepage> {
               ],
             ),
             const SizedBox(
-              height: 40,
+              height: 24,
             ),
             Image.asset('assets/discounts.png'),
             const SizedBox(
@@ -100,7 +153,7 @@ class _HomepageState extends State<Homepage> {
                         BoxDecoration(border: Border.all(color: altoGrey), borderRadius: BorderRadius.circular(30)),
                     child: Text(
                       categories[index],
-                      style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                      style:  GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w500),
                     ),
                   );
                 },
@@ -116,16 +169,16 @@ class _HomepageState extends State<Homepage> {
             ),
             Row(
               children: [
-                const Text(
+                 Text(
                   'Flash Sale',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const Spacer(),
                 Row(
                   children: [
-                    const Text(
+                     Text(
                       'Closing in:',
-                      style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.w500),
+                      style: GoogleFonts.poppins(color: Colors.black, fontSize: 12, fontWeight: FontWeight.w500),
                     ),
                     const SizedBox(
                       width: 8,
@@ -135,9 +188,9 @@ class _HomepageState extends State<Homepage> {
                         Container(
                           padding: const EdgeInsets.all(4),
                           decoration: BoxDecoration(color: ebbWhite, borderRadius: BorderRadius.circular(2)),
-                          child: const Text(
+                          child:  Text(
                             '08',
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                            style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
                           ),
                         ),
                         const SizedBox(
@@ -146,9 +199,9 @@ class _HomepageState extends State<Homepage> {
                         Container(
                           padding: const EdgeInsets.all(4),
                           decoration: BoxDecoration(color: ebbWhite, borderRadius: BorderRadius.circular(2)),
-                          child: const Text(
+                          child:  Text(
                             '25',
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                            style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
                           ),
                         ),
                         const SizedBox(
@@ -157,9 +210,9 @@ class _HomepageState extends State<Homepage> {
                         Container(
                           padding: const EdgeInsets.all(4),
                           decoration: BoxDecoration(color: ebbWhite, borderRadius: BorderRadius.circular(2)),
-                          child: const Text(
+                          child:  Text(
                             '48',
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                            style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
                           ),
                         ),
                       ],
@@ -195,9 +248,9 @@ class _HomepageState extends State<Homepage> {
                       const SizedBox(
                         height: 4,
                       ),
-                      const Text(
+                      Text(
                         '\$140.00',
-                        style: TextStyle(fontWeight: FontWeight.w600),
+                        style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
                       )
                     ],
                   );
@@ -212,16 +265,16 @@ class _HomepageState extends State<Homepage> {
             const SizedBox(
               height: 24,
             ),
-            const Row(
+            Row(
               children: [
                 Text(
                   'Most Popular',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   'See More',
-                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
+                  style: GoogleFonts.poppins(color: Colors.black, fontWeight: FontWeight.w500),
                 )
               ],
             ),
@@ -254,6 +307,29 @@ class _HomepageState extends State<Homepage> {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class AnimatedBar extends StatelessWidget {
+  const AnimatedBar({
+    super.key,
+    required this.isActive,
+  });
+
+  final bool isActive;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      margin: const EdgeInsets.only(bottom: 2),
+      height: 4,
+      width: isActive ? 4 : 0,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        shape: BoxShape.circle
       ),
     );
   }
