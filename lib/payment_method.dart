@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:zoda_test/app_colors.dart';
 
 class PaymentMethod extends StatefulWidget {
@@ -25,26 +26,46 @@ class _PaymentMethodState extends State<PaymentMethod> {
             ),
             Row(
               children: [
+                InkWell(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                  child: Container(
+                    padding: const EdgeInsets.all(17),
+                    alignment: Alignment.centerLeft,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: galleryWhite),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Icon(
+                      Icons.arrow_back_ios_new,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                 Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Payment Method',
+                        style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 20),
+                      ),
+                    ],
+                  ),
+                ),
                 Container(
                   padding: const EdgeInsets.all(17),
+                  alignment: Alignment.centerLeft,
                   decoration: BoxDecoration(
-                    border: Border.all(color: galleryWhite),
+                    border: Border.all(color: Colors.transparent),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Icon(
                     Icons.arrow_back_ios_new,
-                    color: Colors.black,
+                    color: Colors.transparent,
                   ),
                 ),
-                const SizedBox(
-                  width: 16,
-                ),
-                const Expanded(
-                    child: Center(
-                        child: Text(
-                  'Payment Method',
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-                ))),
               ],
             ),
             const SizedBox(
@@ -53,6 +74,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
             Expanded(
                 child: ListView(
                   physics: const ClampingScrollPhysics(),
+              padding: EdgeInsets.zero,
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -72,13 +94,13 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       ),
                       Expanded(
                         child: RadioListTile(
-                            title: const Text(
+                            title:  Text(
                               'Mastercard',
-                              style: TextStyle(fontWeight: FontWeight.w500),
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
                             ),
-                            subtitle: const Text(
+                            subtitle:  Text(
                               '**** **** 7896 4576',
-                              style: TextStyle(fontWeight: FontWeight.w500, color: gray, fontSize: 12),
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.w500, color: gray, fontSize: 12),
                             ),
                             visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                             contentPadding: EdgeInsets.zero,
@@ -116,13 +138,13 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       ),
                       Expanded(
                         child: RadioListTile(
-                            title: const Text(
+                            title:  Text(
                               'Paypal',
-                              style: TextStyle(fontWeight: FontWeight.w500),
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
                             ),
-                            subtitle: const Text(
+                            subtitle:  Text(
                               '**** **** 2345 9203',
-                              style: TextStyle(fontWeight: FontWeight.w500, color: gray, fontSize: 12),
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.w500, color: gray, fontSize: 12),
                             ),
                             visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                             contentPadding: EdgeInsets.zero,
@@ -140,7 +162,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                   ),
                 ),
                 const SizedBox(height: 24,),
-                const Text('Add Another Method',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16),),
+                 Text('Add Another Method',style: GoogleFonts.poppins(fontWeight: FontWeight.w600,fontSize: 16),),
                 const SizedBox(height: 16,),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -158,15 +180,15 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       const SizedBox(
                         width: 12,
                       ),
-                      const Expanded(
+                       Expanded(
                         child: ListTile(
                             title: Text(
                               'Credit/Debit Card',
-                              style: TextStyle(fontWeight: FontWeight.w500),
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
                             ),
                             subtitle: Text(
                               'Pay with you Visa or Master Card',
-                              style: TextStyle(fontWeight: FontWeight.w500, color: gray, fontSize: 12),
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.w500, color: gray, fontSize: 12),
                             ),
                             visualDensity: VisualDensity(vertical: -4, horizontal: -4),
                             contentPadding: EdgeInsets.zero,
@@ -195,9 +217,9 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       const SizedBox(
                         width: 12,
                       ),
-                      const Text(
+                       Text(
                         'Paypal',
-                        style: TextStyle(fontWeight: FontWeight.w500),
+                        style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
                       ),
                       const Spacer(),
                       const Icon(Icons.arrow_forward_ios_sharp,size: 16,color: Colors.black,)
@@ -223,9 +245,9 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       const SizedBox(
                         width: 12,
                       ),
-                      const Text(
+                       Text(
                         'Apple Pay',
-                        style: TextStyle(fontWeight: FontWeight.w500),
+                        style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
                       ),
                       const Spacer(),
                       const Icon(Icons.arrow_forward_ios_sharp,size: 16,color: Colors.black,)
@@ -233,7 +255,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                   ),
                 ),
                 const SizedBox(height: 24,),
-                const Text('Pay Later',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16),),
+                 Text('Pay Later',style: GoogleFonts.poppins(fontWeight: FontWeight.w600,fontSize: 16),),
                 const SizedBox(
                   height: 16,
                 ),
@@ -253,9 +275,9 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       const SizedBox(
                         width: 12,
                       ),
-                      const Text(
+                       Text(
                         'Kredivo',
-                        style: TextStyle(fontWeight: FontWeight.w500),
+                        style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
                       ),
                       const Spacer(),
                       const Icon(Icons.arrow_forward_ios_sharp,size: 16,color: Colors.black,)

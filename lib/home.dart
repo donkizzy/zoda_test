@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zoda_test/app_colors.dart';
+import 'package:zoda_test/my_cart.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -225,23 +226,28 @@ class _HomepageState extends State<Homepage> {
             const SizedBox(
               height: 16,
             ),
-            SizedBox(
-              height: 155,
-              child: ListView.separated(
-                itemCount: 20,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Image.asset(
-                    'assets/balmain.png',
-                    height: 150,
-                    width: 150,
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                    width: 10,
-                  );
-                },
+            InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MyCart()));
+              },
+              child: SizedBox(
+                height: 155,
+                child: ListView.separated(
+                  itemCount: 20,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Image.asset(
+                      'assets/balmain.png',
+                      height: 150,
+                      width: 150,
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return const SizedBox(
+                      width: 10,
+                    );
+                  },
+                ),
               ),
             )
           ],
