@@ -14,7 +14,7 @@ class ProductDetail extends StatefulWidget {
 class _ProductDetailState extends State<ProductDetail> {
   late CarouselSliderController carouselController;
   int carouselIndicator = 0;
-  List<String> assets = ['assets/balmain.png', 'assets/balmain.png', 'assets/balmain.png'];
+  List<String> assets = ['assets/addidas.png', 'assets/addidas.png', 'assets/addidas.png'];
 
   @override
   void initState() {
@@ -156,7 +156,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   /// Items
                   items: assets
                       .map((item) => Image.asset(
-                            'assets/balmain.png',
+                           item,
                             fit: BoxFit.cover,
                             height: MediaQuery.of(context).size.height / 2,
                             width: double.infinity,
