@@ -21,11 +21,19 @@ class _MyCartState extends State<MyCart> {
     return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: Container(
-        height: 260,
+        height: 240,
         padding: const EdgeInsets.only(top: 24),
-        decoration: const BoxDecoration(
+        decoration:  BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.only(
+            boxShadow: [
+              BoxShadow(
+                color: mineShaftGray.withOpacity(0.08),
+                spreadRadius: 0,
+                blurRadius: 32,
+                offset: const Offset(0, 3), // changes position of shadow
+              ),
+            ],
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(24),
               topRight: Radius.circular(24),
             )),
@@ -86,6 +94,7 @@ class _MyCartState extends State<MyCart> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: ListView(
+          physics: const ClampingScrollPhysics(),
           children: [
             Row(
               children: [
@@ -106,13 +115,13 @@ class _MyCartState extends State<MyCart> {
                     ),
                   ),
                 ),
-                const Expanded(
+                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         'My Cart',
-                        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                        style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 20),
                       ),
                     ],
                   ),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zoda_test/app_colors.dart';
 import 'package:zoda_test/my_cart.dart';
-import 'package:zoda_test/payment_method.dart';
 
 class ProductDetail extends StatefulWidget {
   const ProductDetail({super.key});
@@ -33,9 +32,17 @@ class _ProductDetailState extends State<ProductDetail> {
             color: Colors.white
         ),
         child: Container(
-          decoration: const BoxDecoration(
+          decoration:  BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.only(
+              boxShadow: [
+                BoxShadow(
+                  color: mineShaftGray.withOpacity(0.08),
+                  spreadRadius: 0,
+                  blurRadius: 32,
+                  offset: const Offset(0, 3), // changes position of shadow
+                ),
+              ],
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(24),
                 topRight: Radius.circular(24),
               )),

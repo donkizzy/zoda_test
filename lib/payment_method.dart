@@ -15,6 +15,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.width);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -50,11 +51,12 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       Text(
                         'Payment Method',
                         style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 20),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),
                 ),
-                Container(
+           if(MediaQuery.of(context).size.width > 350)     Container(
                   padding: const EdgeInsets.all(17),
                   alignment: Alignment.centerLeft,
                   decoration: BoxDecoration(

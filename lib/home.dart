@@ -91,23 +91,26 @@ class _HomepageState extends State<Homepage> {
           children: [
             Row(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Discover',
-                      style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                     Text(
-                      'Find anything that you want',
-                      style: GoogleFonts.poppins(color: gray, fontWeight: FontWeight.w500, fontSize: 12),
-                    )
-                  ],
+                Flexible(
+                  fit: FlexFit.tight,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Discover',
+                        style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                       Text(
+                        'Find anything that you want',
+                        style: GoogleFonts.poppins(color: gray, fontWeight: FontWeight.w500, fontSize: 12),
+                      )
+                    ],
+                  ),
                 ),
-                const Spacer(),
+                const SizedBox(width: 12,),
                 Container(
                   padding: const EdgeInsets.all(17),
                   margin: const EdgeInsets.only(right: 12),
@@ -230,29 +233,34 @@ class _HomepageState extends State<Homepage> {
                 itemCount: 10,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                          decoration: BoxDecoration(color: ebbWhite, borderRadius: BorderRadius.circular(12)),
-                          padding: const EdgeInsets.all(5),
-                          child: Image.asset(
-                            'assets/addidas.png',
-                            height: 120,
-                            width: 120,
-                          )),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      const Text('Adidas Sneaker'),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        '\$140.00',
-                        style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
-                      )
-                    ],
+                  return InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProductDetail()));
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                            decoration: BoxDecoration(color: ebbWhite, borderRadius: BorderRadius.circular(12)),
+                            padding: const EdgeInsets.all(5),
+                            child: Image.asset(
+                              'assets/addidas.png',
+                              height: 120,
+                              width: 120,
+                            )),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        const Text('Adidas Sneaker'),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          '\$140.00',
+                          style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+                        )
+                      ],
+                    ),
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {

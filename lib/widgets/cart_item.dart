@@ -18,6 +18,7 @@ class _CartItemState extends State<CartItem> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Checkbox(
                 value: isChecked,
@@ -32,8 +33,8 @@ class _CartItemState extends State<CartItem> {
             ),
             Image.asset(
               'assets/balmain.png',
-              height: 117,
-              width: 117,
+              height: MediaQuery.of(context).size.width / 4,
+              width: MediaQuery.of(context).size.width / 4,
             ),
             const SizedBox(
               width: 12,
@@ -42,14 +43,14 @@ class _CartItemState extends State<CartItem> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   Text(
+                  Text(
                     'Adidas Sneaker “Psychic Energy',
                     style: GoogleFonts.poppins(color: mineShaftGray, fontWeight: FontWeight.w600, fontSize: 16),
                   ),
                   const SizedBox(
                     height: 8,
                   ),
-                   Text(
+                  Text(
                     '\$140.00',
                     style: GoogleFonts.poppins(color: gray, fontWeight: FontWeight.w500, fontSize: 12),
                   ),
@@ -58,44 +59,64 @@ class _CartItemState extends State<CartItem> {
                   ),
                   Row(
                     children: [
-                      Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(border: Border.all(color: altoGrey), shape: BoxShape.circle),
-                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
-                            child: const Center(
-                                child: Icon(
-                                  Icons.remove,
-                                  size: 12,
-                                )),
-                          ),
-                          const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 18.5),
-                              child: Text(
-                                '1',
-                                style: TextStyle(color: mineShaftGray, fontWeight: FontWeight.w500, fontSize: 12),
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(border: Border.all(color: altoGrey), shape: BoxShape.circle),
+                              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
+                              child: const Center(
+                                  child: Icon(
+                                Icons.remove,
+                                size: 12,
                               )),
-                          Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: altoGrey),
-                                shape: BoxShape.circle
                             ),
-                            padding: const EdgeInsets.symmetric(horizontal: 6,vertical: 12),
-                            child: const Center(child: Icon(Icons.add,size: 12,)),
-                          )
-                        ],
-                      ),
-                      const Spacer(),
-                      Container(
-                        padding: const EdgeInsets.all(4),
-                        decoration: const BoxDecoration(
-                            color: ebbWhite,
-                            shape: BoxShape.circle
+                            Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 18.5),
+                                child: Text(
+                                  '1',
+                                  style: GoogleFonts.poppins(
+                                      color: mineShaftGray, fontWeight: FontWeight.w500, fontSize: 12),
+                                )),
+                            Container(
+                              decoration: BoxDecoration(border: Border.all(color: altoGrey), shape: BoxShape.circle),
+                              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
+                              child: const Center(
+                                  child: Icon(
+                                Icons.add,
+                                size: 12,
+                              )),
+                            )
+                          ],
                         ),
-                        child: const Icon(Icons.delete_outline_rounded,size: 16,),
-                      )
+                      ),
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      if (MediaQuery.of(context).size.width > 350)
+                        Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: const BoxDecoration(color: ebbWhite, shape: BoxShape.circle),
+                          child: const Icon(
+                            Icons.delete_outline_rounded,
+                            size: 16,
+                          ),
+                        )
                     ],
-                  )
+                  ),
+                  if (!(MediaQuery.of(context).size.width > 350))
+                    const SizedBox(
+                      height: 14,
+                    ),
+                  if (!(MediaQuery.of(context).size.width > 350))
+                    Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: const BoxDecoration(color: ebbWhite, shape: BoxShape.circle),
+                      child: const Icon(
+                        Icons.delete_outline_rounded,
+                        size: 16,
+                      ),
+                    )
                 ],
               ),
             )
@@ -104,7 +125,10 @@ class _CartItemState extends State<CartItem> {
         const SizedBox(
           height: 24,
         ),
-        const Divider(height: 1,color: altoGrey,),
+        const Divider(
+          height: 1,
+          color: altoGrey,
+        ),
       ],
     );
   }

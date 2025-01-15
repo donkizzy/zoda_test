@@ -20,9 +20,17 @@ class _OrderPageState extends State<OrderPage> {
       backgroundColor: Colors.white,
       bottomNavigationBar: Container(
         height: 120,
-        decoration: const BoxDecoration(
+        decoration:  BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.only(
+            boxShadow: [
+              BoxShadow(
+                color: mineShaftGray.withOpacity(0.08),
+                spreadRadius: 0,
+                blurRadius: 32,
+                offset: const Offset(0, 3), // changes position of shadow
+              ),
+            ],
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(24),
               topRight: Radius.circular(24),
             )),
